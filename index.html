@@ -970,19 +970,19 @@
             }
         });
 
-        // Navigation Highlight
+        // Navigation Highlight - Scroll Based
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link[data-section]');
 
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '-100px 0px -50% 0px'
-        };
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.getAttribute('id');
+        function highlightNav() {
+            const scrollY = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
                         if (link.getAttribute('data-section') === sectionId) {
@@ -991,9 +991,10 @@
                     });
                 }
             });
-        }, observerOptions);
+        }
 
-        sections.forEach(section => sectionObserver.observe(section));
+        window.addEventListener('scroll', highlightNav);
+        highlightNav(); // Run on load
 
         // Fade in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
