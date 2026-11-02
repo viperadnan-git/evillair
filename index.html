@@ -4,1041 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evil Lair | Open Source Software Solutions</title>
-    <meta name="description" content="Evil Lair builds open-source software that tackles the challenges others avoid. Specializing in high-performance systems, streaming infrastructure, and deep technical analysis.">
+    <meta name="description" content="Evil Lair builds open-source software for the problems others avoid: large-scale data processing, streaming infrastructure, and deep systems analysis.">
     <meta name="keywords" content="open source, software development, streaming, data processing, developer tools, Evil Lair, viperadnan">
     <meta name="author" content="Evil Lair">
     <meta name="robots" content="index, follow">
-    
+    <meta name="theme-color" content="#0a0a0a">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Evil Lair | Open Source Software Solutions">
-    <meta property="og:description" content="Engineering solutions for the impossible. Open-source software that tackles the challenges others avoid.">
+    <meta property="og:description" content="Open-source software for the problems others avoid.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://viperadnan.com/evillair/">
-    <meta property="og:image" content="https://api.microlink.io/?url=https://viperadnan.com/evillair&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000">
+    <meta property="og:image" content="https://viperadnan.com/evillair/brand/og-1200x630.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Evil Lair">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Evil Lair | Open Source Software Solutions">
-    <meta name="twitter:description" content="Engineering solutions for the impossible.">
-    <meta name="twitter:image" content="https://api.microlink.io/?url=https://viperadnan.com/evillair&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1200&viewport.height=630&waitForTimeout=3000">
-    
+    <meta name="twitter:description" content="Open-source software for the problems others avoid.">
+    <meta name="twitter:image" content="https://viperadnan.com/evillair/brand/og-1200x630.png">
+
     <link rel="canonical" href="https://viperadnan.com/evillair/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Arial Black, sans-serif' font-size='50' font-weight='900' text-anchor='middle' fill='%23ffffff'%3EEL%3C/text%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Arial Black, sans-serif' font-size='50' font-weight='900' text-anchor='middle' fill='%23ffffff'%3EEL%3C/text%3E%3C/svg%3E">
-    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #0a0a0a;
-            --white: #ffffff;
-            --gray: #888888;
-            --dark-gray: #151515;
-            --border: rgba(255,255,255,0.1);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--black);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Grain overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        /* Custom Cursor - Dot with Ring */
-        * {
-            cursor: none;
-        }
-
-        .cursor {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background: var(--white);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease, opacity 0.1s ease;
-        }
-
-        .cursor-ring {
-            position: fixed;
-            width: 35px;
-            height: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-        }
-
-        .cursor.hover {
-            transform: translate(-50%, -50%) scale(0.5);
-            opacity: 0.5;
-        }
-
-        .cursor-ring.hover {
-            width: 50px;
-            height: 50px;
-            border-color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            * {
-                cursor: auto;
-            }
-            .cursor,
-            .cursor-ring {
-                display: none;
-            }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 25px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            mix-blend-mode: difference;
-        }
-
-        .nav-left, .nav-right {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            opacity: 0.5;
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--white);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 100px 60px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background: radial-gradient(ellipse at center, var(--dark-gray) 0%, var(--black) 70%);
-            z-index: -1;
-            will-change: transform;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            flex: 1;
-            will-change: transform;
-        }
-
-        .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(80px, 18vw, 220px);
-            font-weight: 400;
-            line-height: 0.9;
-            letter-spacing: -0.02em;
-            color: var(--white);
-            text-transform: uppercase;
-            margin-bottom: 40px;
-        }
-
-        .hero-title span {
-            display: inline;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title span {
-                display: block;
-            }
-        }
-
-        .hero-description {
-            font-size: 14px;
-            line-height: 1.9;
-            color: var(--gray);
-            max-width: 500px;
-            font-weight: 400;
-            letter-spacing: 0.03em;
-            text-align: center;
-        }
-
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .scroll-text {
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            color: var(--white);
-            opacity: 0.6;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 50px;
-            background: linear-gradient(to bottom, var(--white), transparent);
-            opacity: 0.6;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
-        }
-
-        /* Grid Section */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            border-top: 1px solid var(--border);
-        }
-
-        .grid-item {
-            background: var(--black);
-            padding: 50px 40px;
-            min-height: 320px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .grid-item:nth-child(2n) {
-            border-right: none;
-        }
-
-        .grid-item.dark-bg {
-            background: var(--dark-gray);
-        }
-
-        .grid-item.tall {
-            min-height: 400px;
-        }
-
-        .grid-item.center {
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* Section titles */
-        .section-label {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gray);
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(36px, 4vw, 56px);
-            font-weight: 400;
-            line-height: 1.05;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-        }
-
-        .section-text {
-            font-size: 12px;
-            line-height: 1.9;
-            color: var(--gray);
-            max-width: 380px;
-        }
-
-        /* Expertise */
-        .expertise-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .expertise-text {
-            font-size: 12px;
-            line-height: 1.8;
-            color: var(--gray);
-        }
-
-        /* Marquee */
-        .marquee-container {
-            overflow: hidden;
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .marquee {
-            display: flex;
-            animation: marquee 25s linear infinite;
-        }
-
-        .marquee-content {
-            display: flex;
-            gap: 80px;
-            padding-right: 80px;
-            white-space: nowrap;
-            align-items: center;
-        }
-
-        .marquee-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(50px, 8vw, 100px);
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .marquee-text.outline {
-            -webkit-text-stroke: 1px var(--white);
-            color: transparent;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Philosophy Section */
-        #philosophy {
-            padding: 100px 40px 80px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .philosophy-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .philosophy-item {
-            padding: 50px 30px;
-            text-align: center;
-            border-right: 1px solid var(--border);
-        }
-
-        .philosophy-item:last-child {
-            border-right: none;
-        }
-
-        .philosophy-icon {
-            margin-bottom: 25px;
-        }
-
-        .philosophy-icon svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--white);
-        }
-
-        .philosophy-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .philosophy-text {
-            font-size: 11px;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 100px 60px;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 80px;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(50px, 7vw, 90px);
-            line-height: 1;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        .contact-text {
-            font-size: 13px;
-            line-height: 1.9;
-            color: var(--gray);
-            margin-bottom: 40px;
-            max-width: 450px;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--white);
-            transition: opacity 0.3s;
-        }
-
-        .contact-link:hover {
-            opacity: 0.5;
-        }
-
-        .contact-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 40px;
-        }
-
-        /* Stats */
-        .stats-row {
-            display: flex;
-            gap: 50px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: 0.02em;
-        }
-
-        .stat-label {
-            font-size: 9px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        /* Arrow */
-        .arrow-down {
-            width: 1px;
-            height: 80px;
-            background: var(--white);
-            position: relative;
-            margin: 40px auto 0;
-        }
-
-        .arrow-down::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -5px;
-            width: 11px;
-            height: 11px;
-            border-right: 1px solid var(--white);
-            border-bottom: 1px solid var(--white);
-            transform: rotate(45deg);
-        }
-
-        /* Footer */
-        footer {
-            padding: 50px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .footer-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 0.05em;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .footer-link {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .footer-link:hover {
-            color: var(--white);
-        }
-
-        .footer-right {
-            font-size: 11px;
-            color: var(--gray);
-            letter-spacing: 0.05em;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero {
-                padding: 80px 40px;
-            }
-
-            .scroll-indicator {
-                bottom: 30px;
-            }
-
-            .grid-section {
-                grid-template-columns: 1fr;
-            }
-
-            .grid-item {
-                border-right: none;
-            }
-
-            .philosophy-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .philosophy-item {
-                border-bottom: 1px solid var(--border);
-            }
-
-            .philosophy-item:nth-child(2n) {
-                border-right: none;
-            }
-
-            .philosophy-item:nth-last-child(-n+2) {
-                border-bottom: none;
-            }
-
-            .contact-section {
-                grid-template-columns: 1fr;
-                padding: 80px 40px;
-            }
-
-            .contact-right {
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 20px 25px;
-            }
-
-            .nav-left, .nav-right {
-                gap: 20px;
-            }
-
-            .nav-link {
-                font-size: 9px;
-            }
-
-            .hero {
-                padding: 60px 25px;
-            }
-
-            .hero-description {
-                font-size: 13px;
-            }
-
-            .grid-item {
-                padding: 40px 25px;
-                min-height: 280px;
-            }
-
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .philosophy-item {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .philosophy-item:last-child {
-                border-bottom: none;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 25px;
-            }
-
-            .footer-left {
-                flex-direction: column;
-                gap: 25px;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 25px;
-            }
-
-            .stats-row {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 40px;
-            }
-
-            #philosophy {
-                padding: 60px 25px;
-            }
-
-            .contact-section {
-                padding: 60px 25px;
-            }
-
-            .scroll-indicator {
-                bottom: 80px;
-            }
-        }
-
-        /* Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-ring"></div>
+    <!-- Logo: u = stroke/5; band slope 1:5, block slope 1:2, G2 corner; 20x21u in 25u square -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="logo" viewBox="-2.5 -2 25 25"><path fill="currentColor" d="M0 4L20 0V5L5 8V21H0ZM20 8V21H9V17.75C9 13.5 9 13.5 12.801 11.599Z"/></symbol>
+    </svg>
 
-    <!-- Header -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
     <header>
-        <nav class="nav-left">
+        <nav aria-label="Sections">
             <a href="#expertise" class="nav-link" data-section="expertise">Expertise</a>
-            <a href="#philosophy" class="nav-link" data-section="philosophy">Philosophy</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
         </nav>
-        <nav class="nav-right">
+        <a href="#hero" aria-label="Evil Lair home"><svg class="logo header-logo" aria-hidden="true"><use href="#logo"/></svg></a>
+        <nav aria-label="Elsewhere">
             <a href="https://github.com/viperadnan-git" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div>
-                <h1 class="hero-title fade-in">
-                    <span>EVIL</span> <span>LAIR</span>
-                </h1>
-            </div>
-            <p class="hero-description fade-in">
-                We build open-source software that tackles the challenges others avoid. Specializing in high-performance systems for massive data, streaming infrastructure, and deep technical analysis.
-            </p>
-        </div>
-        <div class="scroll-indicator">
-            <span class="scroll-text">DESCEND</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- Grid Section -->
-    <section class="grid-section" id="expertise">
-        <div class="grid-item dark-bg tall">
-            <div class="section-label">What We Do</div>
-            <div>
-                <h2 class="section-title fade-in">Engineering Solutions For The Impossible</h2>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="section-label">Large-Scale Data</div>
-            <div>
-                <h3 class="expertise-title">Data Processing</h3>
-                <p class="expertise-text">
-                    Purpose-built solutions for handling terabytes of data efficiently. From chunked uploads to distributed processing pipelines.
-                </p>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="section-label">Streaming</div>
-            <div>
-                <h3 class="expertise-title">Media Infrastructure</h3>
-                <p class="expertise-text">
-                    High-performance streaming solutions that deliver content reliably at any scale. HLS, DASH, transcoding pipelines.
-                </p>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="section-label">Research</div>
-            <div>
-                <h3 class="expertise-title">Systems Analysis</h3>
-                <p class="expertise-text">
-                    Deep technical analysis to understand how systems work under the hood. Protocol analysis, binary inspection, and documentation.
-                </p>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="section-label">Developer Tools</div>
-            <div>
-                <h3 class="expertise-title">Automation & APIs</h3>
-                <p class="expertise-text">
-                    CLI tools, REST APIs, and automation pipelines that make development faster and more reliable.
-                </p>
-            </div>
-        </div>
-        <div class="grid-item dark-bg">
-            <div>
-                <p style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1.3; color: var(--white); text-transform: uppercase; letter-spacing: 0.02em;">
-                    Discover the opportunities offered by Evil Lair on our GitHub repository.
-                </p>
-            </div>
-            <a href="https://github.com/viperadnan-git" class="contact-link" target="_blank" rel="noopener noreferrer" style="margin-top: 30px;">
-                View On GitHub
-                <span>→</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <div class="marquee-content">
-                <span class="marquee-text">Open Source</span>
-                <span class="marquee-text outline">Performance</span>
-                <span class="marquee-text">Scale Ready</span>
-                <span class="marquee-text outline">Community</span>
-                <span class="marquee-text">Innovation</span>
-                <span class="marquee-text outline">Quality</span>
-            </div>
-            <div class="marquee-content">
-                <span class="marquee-text">Open Source</span>
-                <span class="marquee-text outline">Performance</span>
-                <span class="marquee-text">Scale Ready</span>
-                <span class="marquee-text outline">Community</span>
-                <span class="marquee-text">Innovation</span>
-                <span class="marquee-text outline">Quality</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Philosophy Section -->
-    <section id="philosophy">
-        <div class="philosophy-header">
-            <div class="section-label">Our Philosophy</div>
-            <h2 class="section-title fade-in" style="max-width: 700px; margin: 0 auto;">
-                The Best Solutions Come From Understanding Problems Deeply
-            </h2>
-        </div>
-        <div class="philosophy-grid">
-            <article class="philosophy-item fade-in">
-                <div class="philosophy-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+    <main>
+        <section class="hero" id="hero">
+            <svg class="hero-mark" viewBox="0 0 20 21" aria-hidden="true"><path d="M0 4L20 0V5L5 8V21H0ZM20 8V21H9V17.75C9 13.5 9 13.5 12.801 11.599Z"/></svg>
+            <h1 class="hero-title"><span>Evil</span> <span>Lair</span></h1>
+            <div class="hero-intro">
+                <p>We build open-source software for the problems others avoid: moving terabytes, streaming at scale, and taking systems apart to see how they work.</p>
+                <div class="actions">
+                    <a href="https://github.com/viperadnan-git" class="btn-primary" target="_blank" rel="noopener noreferrer">Browse the code</a>
+                    <a href="#expertise" class="btn-text">See what we build</a>
                 </div>
-                <h3 class="philosophy-title">Security First</h3>
-                <p class="philosophy-text">Every line of code is written with security in mind.</p>
+            </div>
+        </section>
+
+        <section class="work" id="expertise">
+            <div class="work-intro">
+                <h2 class="display-2">What we build</h2>
+                <p class="lede">Tools for the parts of software most teams route around. Every project is on GitHub.</p>
+            </div>
+            <article class="work-item">
+                <h3>Data processing</h3>
+                <p>Pipelines that move terabytes without falling over, from chunked uploads to distributed processing.</p>
             </article>
-            <article class="philosophy-item fade-in">
-                <div class="philosophy-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-                </div>
-                <h3 class="philosophy-title">Performance</h3>
-                <p class="philosophy-text">Obsessed with speed and efficiency at every level.</p>
+            <article class="work-item">
+                <h3>Media infrastructure</h3>
+                <p>Streaming that holds up at any scale: HLS and DASH delivery, backed by transcoding pipelines.</p>
             </article>
-            <article class="philosophy-item fade-in">
-                <div class="philosophy-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <h3 class="philosophy-title">Community</h3>
-                <p class="philosophy-text">Built by developers, for developers. Always open source.</p>
+            <article class="work-item">
+                <h3>Systems analysis</h3>
+                <p>Taking systems apart to learn how they work: protocol analysis, binary inspection, and the documentation that comes out of it.</p>
             </article>
-            <article class="philosophy-item fade-in">
-                <div class="philosophy-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
-                </div>
-                <h3 class="philosophy-title">Quality</h3>
-                <p class="philosophy-text">Clean code, comprehensive docs, and thorough testing.</p>
+            <article class="work-item">
+                <h3>Automation and APIs</h3>
+                <p>CLI tools, REST APIs, and automation pipelines that make development faster and more reliable.</p>
             </article>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div>
-            <div class="section-label">Get In Touch</div>
-            <h2 class="contact-title fade-in">
-                Ready To Build Something Great?
-            </h2>
-            <p class="contact-text">
-                Join our community of developers solving real-world problems with open-source software. Star our repos, submit issues, or reach out directly.
-            </p>
-            <a href="https://github.com/viperadnan-git" class="contact-link" target="_blank" rel="noopener noreferrer">
-                View On GitHub
-                <span>→</span>
-            </a>
-        </div>
-        <div class="contact-right">
-            <div class="stats-row">
-                <div class="stat-item">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Open Source</div>
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span>Chunked uploads</span><span>HLS</span><span>DASH</span><span>Transcoding</span><span>Protocol analysis</span><span>Binary inspection</span><span>REST APIs</span><span>CLI tools</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">∞</div>
-                    <div class="stat-label">Scale Ready</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">0</div>
-                    <div class="stat-label">Compromises</div>
+                <div class="marquee-group">
+                    <span>Chunked uploads</span><span>HLS</span><span>DASH</span><span>Transcoding</span><span>Protocol analysis</span><span>Binary inspection</span><span>REST APIs</span><span>CLI tools</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
+        <section class="projects" id="projects">
+            <div class="projects-head">
+                <div>
+                    <h2 class="display-2">Projects</h2>
+                    <p class="lede" id="gh-summary">Everything we build is public on GitHub.</p>
+                    <div class="langs" id="langs" hidden>
+                        <div class="lang-bar" id="lang-bar" aria-hidden="true"></div>
+                        <ul class="lang-legend" id="lang-legend" aria-label="Languages across projects"></ul>
+                    </div>
+                </div>
+                <div class="sort" role="group" aria-label="Sort projects" hidden>
+                    <button type="button" data-sort="pushed" aria-pressed="true">Recently updated</button>
+                    <button type="button" data-sort="stars" aria-pressed="false">Most starred</button>
+                </div>
+            </div>
+            <ol class="repo-list" id="repo-list" aria-live="polite">
+                <li class="status">Loading projects from GitHub…</li>
+            </ol>
+            <a href="https://github.com/viperadnan-git?tab=repositories" class="btn-text" target="_blank" rel="noopener noreferrer">See all projects on GitHub</a>
+        </section>
+
+        <section class="principles" id="philosophy">
+            <h2 class="display-2">The best solutions come from understanding problems deeply</h2>
+            <ul>
+                <li>
+                    <h3>Security first</h3>
+                    <p>Every line is written with security in mind.</p>
+                </li>
+                <li>
+                    <h3>Performance</h3>
+                    <p>Speed and efficiency at every level of the stack.</p>
+                </li>
+                <li>
+                    <h3>Open by default</h3>
+                    <p>Built by developers, for developers. Everything is open source.</p>
+                </li>
+                <li>
+                    <h3>Quality</h3>
+                    <p>Clean code, thorough documentation, and real tests.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="display-2">Bring us a hard problem</h2>
+            <p class="lede">Star a repo, open an issue, send a pull request, or email us directly.</p>
+            <div class="actions">
+                <a href="mailto:evillair@googlegroups.com" class="btn-primary">Email us</a>
+                <a href="https://github.com/viperadnan-git" class="btn-text" target="_blank" rel="noopener noreferrer">Browse the code</a>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div class="footer-left">
-            <span class="footer-logo">EVIL LAIR</span>
-            <div class="footer-links">
-                <a href="https://github.com/viperadnan-git" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="mailto:evillair@googlegroups.com" class="footer-link">Support</a>
-                <a href="https://viperadnan.com/pages/privacy-policy" class="footer-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-            </div>
-        </div>
-        <div class="footer-right">
-            © <span id="copyright-year"></span> Evil Lair. All Rights Reserved.
-        </div>
+        <span class="footer-brand"><svg class="logo" aria-hidden="true"><use href="#logo"/></svg>Evil Lair</span>
+        <nav aria-label="Footer">
+            <a href="https://github.com/viperadnan-git" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:evillair@googlegroups.com">Support</a>
+            <a href="https://viperadnan.com/pages/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a>
+        </nav>
+        <p>© <span id="year">2026</span> Evil Lair. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Set current year for copyright
-        document.getElementById('copyright-year').textContent = new Date().getFullYear();
-
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorRing = document.querySelector('.cursor-ring');
-        
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-        
-        if (window.innerWidth > 768) {
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
-            });
-
-            // Smooth ring follow
-            function animateRing() {
-                ringX += (mouseX - ringX) * 0.15;
-                ringY += (mouseY - ringY) * 0.15;
-                cursorRing.style.left = ringX + 'px';
-                cursorRing.style.top = ringY + 'px';
-                requestAnimationFrame(animateRing);
-            }
-            animateRing();
-
-            // Hover effect on interactive elements
-            const hoverElements = document.querySelectorAll('a, button, .grid-item, .philosophy-item');
-            hoverElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorRing.classList.add('hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorRing.classList.remove('hover');
-                });
-            });
-        }
-
-        // Parallax Effect on Hero
-        const heroBg = document.querySelector('.hero-bg');
-        const heroContent = document.querySelector('.hero-content');
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            if (heroBg && scrollY < window.innerHeight) {
-                heroBg.style.transform = `translateY(${scrollY * 0.5}px)`;
-                heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
-                heroContent.style.opacity = 1 - (scrollY / window.innerHeight);
-            }
-        });
-
-        // Navigation Highlight - Scroll Based
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link[data-section]');
-
-        function highlightNav() {
-            const scrollY = window.scrollY + 150;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('data-section') === sectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        window.addEventListener('scroll', highlightNav);
-        highlightNav(); // Run on load
-
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeObserverOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, fadeObserverOptions);
-
-        fadeElements.forEach(el => fadeObserver.observe(el));
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Evil Lair",
         "alternateName": "Evil's Lair",
-        "description": "Open-source software solutions for high-performance systems, streaming infrastructure, and technical analysis.",
+        "description": "Open-source software for high-performance systems, streaming infrastructure, and technical analysis.",
         "url": "https://viperadnan.com/evillair/",
-        "logo": "https://viperadnan.com/evillair/favicon.svg",
+        "logo": "https://viperadnan.com/evillair/brand/icon-512.png",
         "foundingDate": "2020",
         "contactPoint": {
             "@type": "ContactPoint",
@@ -1064,7 +201,7 @@
         "@type": "WebSite",
         "name": "Evil Lair",
         "url": "https://viperadnan.com/evillair/",
-        "description": "Engineering solutions for the impossible. Open-source software that tackles the challenges others avoid.",
+        "description": "Open-source software for the problems others avoid.",
         "publisher": {
             "@type": "Organization",
             "name": "Evil Lair"
